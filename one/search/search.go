@@ -66,6 +66,16 @@ func Run(searchTerm string) {
 	Display(results)
 
 }
+\
+func Register(feedType string , matcher Matcher){
+	if _ , exists := matchers[feedType] ; exists{
+		log.Println(feedType , "matcher already registered")
+	}
+	
+	log.Println("register" , feedType , "matcher")
+	
+	matchers[feedType] = matcher
+}
 
 func main() {
 	fmt.Println("Hello World!")

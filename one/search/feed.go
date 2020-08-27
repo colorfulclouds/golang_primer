@@ -24,4 +24,13 @@ func RetrieveFeeds() ([]*Feed, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	//安排随后的函数在函数返回后才 执行
+	//使用完文件后 需要主动关闭文件
+	defer file.Close()
+
+	var feeds []*Feed
+	err = json.NewDecoder(file).Decode(&feeds)
+
+	return feeds, err
 }
