@@ -32,7 +32,7 @@ func main() {
 	)
 
 	var (
-		a = 1
+		a = 1 // 类型自动推导
 		b = 2.0
 	)
 
@@ -73,4 +73,13 @@ func main() {
 		j1, j2, j3 = iota, iota, iota // 1
 		k          = iota             // 2
 	)
+	byte    // 1字节也是uint8的别名 存ascii码 就是C语言中的char类型
+	rune    // 4字节也是uint32的别名 存unicode码
+	uintptr // 4 or 8 存储指针的uint32 uint64整数
+
+	pi := 3.14 // 类型推导时 推导为float64
+
+	fushu := 1 + 3.14i //自动类型推导为 complex128
+	// 使用内建函数 获得实部与虚部
+	fmt.Printf("real:", real(fushu), "imag:", imag(fushu))
 }
